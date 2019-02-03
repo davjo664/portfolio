@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/main.css">
+	<title>David Johansson</title>
+	
+	<style>
+
+		:root {
+  --secondary-color: rgba(97, 184, 255, 0.9);
+  --overlay-color: rgba(54, 111, 158, 0.85);
+  --menu-speed: 0.75s;
+}
+
+	.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate On Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition:  opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: var(--overlay-color);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li > a:hover {
+  color: var(--secondary-color);
+}
+	</style>
+</head>
+
+<body >
+  <header>
+    <div class="menu-wrap">
+				<input id="checkbox" type="checkbox" class="toggler">
+				<div class="hamburger"><div></div></div>
+				<div class="menu">
+					<div>
+						<div>
+							<ul>
+									<li >
+											<a href="#home" id="home_link" class="nav-link">
+												Home
+											</a>
+										</li>
+										<li >
+											<a href="#about" id="about_link" class="nav-link">
+												About Me
+											</a>
+										</li>
+										<li >
+											<a href="#work" id="work_link" class="nav-link">
+												My Work
+											</a>
+										</li>
+										<li >
+											<a href="#contact" id="contact_link" class="nav-link">
+												How To Reach Me
+											</a>
+										</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+  </header>
+
+  <main id="home" style="height: 100vh;">
+      <canvas id="artifactCanvas" myattr="myattr" style="position:absolute; left:0; z-index:-1;">
+        </canvas>
+    <div class="portrait-container">
+      <div class="portrait"></div>
+     </div>
+    <h1 class="lg-heading">
+        Hi, I am
+      <span class="text-secondary">David</span>.
+    </h1>
+    <h2 class="sm-heading">
+      Full-Stack Web Developer, Programmer & Designer
+    </h2>
+    <div class="icons">
+      <a href="#!">
+        <i class="fab fa-twitter fa-2x"></i>
+      </a>
+      <a href="#!">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+      <a href="#!">
+        <i class="fab fa-linkedin fa-2x"></i>
+      </a>
+      <a href="#!">
+        <i class="fab fa-github fa-2x"></i>
+      </a>
+		</div>
+	</main>
+	<div id="about" style="height:100vh;">
+
+		</div>
+  
+
+  <script type="text/javascript" src="js/three.min.js"></script>
+		<script type="text/javascript" src="js/Detector.js"></script>
+
+		<script id="vs" type="x-shader/x-vertex">
+
+			varying vec2 vUv;
+
+			void main() {
+
+				vUv = uv;
+				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+			}
+
+		</script>
+
+		<script id="fs" type="x-shader/x-fragment">
+
+			uniform sampler2D map;
+
+			uniform vec3 fogColor;
+			uniform float fogNear;
+			uniform float fogFar;
+
+			varying vec2 vUv;
+
+			void main() {
+
+				float depth = gl_FragCoord.z / gl_FragCoord.w;
+				float fogFactor = smoothstep( fogNear, fogFar, depth );
+
+				gl_FragColor = texture2D( map, vUv );
+				gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
+				gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
+
+			}
+
+		</script>
+
+		<script type="text/javascript">
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container;
+			var camera, scene, renderer;
+			var mesh, geometry, material;
+
+			var mouseX = 0, mouseY = 0;
+			var start_time = Date.now();
+
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
+			init();
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				// Bg gradient
+
+				var canvas = document.createElement( 'canvas' );
+				canvas.width = 32;
+				canvas.height = window.innerHeight;
+
+				var context = canvas.getContext( '2d' );
+
+				var gradient = context.createLinearGradient( 0, 0, 0, canvas.height );
+				gradient.addColorStop(0, "#1e4877");
+				gradient.addColorStop(0.5, "#4584b4");
+
+				context.fillStyle = gradient;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        
+				document.getElementById('artifactCanvas').style.background = 'url(' + canvas.toDataURL('image/png') + ')';
+        document.getElementById('artifactCanvas').style.backgroundSize = '32px 100%';
+				
+				document.getElementById('about').style.background = 'url(' + canvas.toDataURL('image/png') + ')';
+				document.getElementById('about').style.backgroundSize = '32px 100%';
+
+				//
+
+				camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 3000 );
+				camera.position.z = 6000;
+
+				scene = new THREE.Scene();
+
+				geometry = new THREE.Geometry();
+
+				var texture = THREE.ImageUtils.loadTexture( 'img/cloud.png', null, animate );
+				texture.magFilter = THREE.LinearMipMapLinearFilter;
+				texture.minFilter = THREE.LinearMipMapLinearFilter;
+
+				var fog = new THREE.Fog( 0x4584b4, - 100, 3000 );
+
+				material = new THREE.ShaderMaterial( {
+
+					uniforms: {
+
+						"map": { type: "t", value: texture },
+						"fogColor" : { type: "c", value: fog.color },
+						"fogNear" : { type: "f", value: fog.near },
+						"fogFar" : { type: "f", value: fog.far },
+
+					},
+					vertexShader: document.getElementById( 'vs' ).textContent,
+					fragmentShader: document.getElementById( 'fs' ).textContent,
+					depthWrite: false,
+					depthTest: false,
+					transparent: true
+
+				} );
+
+				var plane = new THREE.Mesh( new THREE.PlaneGeometry( 64, 64 ) );
+
+				for ( var i = 0; i < 8000; i++ ) {
+
+					plane.position.x = Math.random() * 1000 - 500;
+					plane.position.y = - Math.random() * Math.random() * 200 - 15;
+					plane.position.z = i;
+					plane.rotation.z = Math.random() * Math.PI;
+					plane.scale.x = plane.scale.y = Math.random() * Math.random() * 1.5 + 0.5;
+
+					THREE.GeometryUtils.merge( geometry, plane );
+
+				}
+
+				mesh = new THREE.Mesh( geometry, material );
+				scene.add( mesh );
+
+				mesh = new THREE.Mesh( geometry, material );
+				mesh.position.z = - 8000;
+				scene.add( mesh );
+
+				renderer = new THREE.WebGLRenderer( { canvas: artifactCanvas, antialias: false } );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				// container.appendChild( renderer.domElement );
+
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onDocumentMouseMove( event ) {
+
+				mouseX = ( event.clientX - windowHalfX ) * 0.25;
+				mouseY = ( event.clientY - windowHalfY ) * 0.15;
+
+			}
+
+			function onWindowResize( event ) {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				position = ( ( Date.now() - start_time ) * 0.03 ) % 8000;
+
+				camera.position.x += ( mouseX - camera.position.x ) * 0.01;
+				camera.position.y += ( - mouseY - camera.position.y ) * 0.01;
+				camera.position.z = - position + 8000;
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+		 <!-- JQuery CDN -->
+		 <script
+		 src="https://code.jquery.com/jquery-3.3.1.min.js"
+		 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		 crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
+	
+</body>
+
+</html>
