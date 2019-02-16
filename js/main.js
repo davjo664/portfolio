@@ -10,7 +10,7 @@ const p = [
       name:"PolyRave VR",
       img: "polyrave.png",
       text:"Immerive VR experience on the web where you can enjoy a music festival in the forest. Made in a project course at Linköpings University.",
-      tech: "Typescript, Node.js, WebVR, WebGL, Three.js, Webpack, Web Audio API",
+      tech: "Typescript, Node.js, WebVR, WebGL, Three.js, Webpack, Web Audio API, Google Poly API",
       link: "https://davjo664.github.io/polyrave-vr"
   },
   {
@@ -83,6 +83,41 @@ const p = [
     tech: "React, Redux, Node.js, Express, Docker",
     link: "https://github.com/davjo664/moviedb"
   },
+  {
+    name: "Garageportexperten 20th Anniversary",
+    img: "garageportexperten.png",
+    text: "Garageportexperten is established in nearly 60 locations in Sweden and in 2015 they celebrated their 20th anniversary. To this anniversary they were in need of a film that would summarize their years in the industry containing pictures, films, brochures, audio files and more." ,
+    tech: "Adobe Photoshop, Adobe After Effects",
+    link: ""
+  },
+  {
+    name: "Ballpit",
+    img: "ballpit.png",
+    text: "Ballpit is an multiplayer AR game where the goal is to knock out your oponents from the game platform. This was my Bachelor Thesis project." ,
+    tech: "libGDX, Java, Vuforia",
+    link: ""
+  },
+  {
+    name: "Winterwise",
+    img: "winterwise.png",
+    text: "Winterwise gives the citizens the opportunity to easily see the status of the roads and bicycle paths/walkways if they are plowed or sanded/gravel/salted in the winter time. For example, you can see which way you should drive, which path to choose to run or the best bike path to your work. Data is gathered from an mobile app inside the plow machine and then visualized in the web app. The project won the category 'Civil environment and transportation' in the East Sweden Hack competition held in Linköping 2016.",
+    tech: "React, Redux, Socket.IO, Google Maps API. (for the web app)",
+    link: ""
+  },
+  {
+    name: "Elva - Linköping Virtual Assistant",
+    img: "elva.png",
+    text: "Elva is a Facebook Messenger bot that was built in a compition held by Linköping Kommun. Elva is connected to an API provided by Linköpings Kommun containing information about events in the city and can answer relevant questions about events in the city. Elva is using Google Dialogflow to understand the context of the questions.",
+    tech: "Facebook Messenger Web Hook, Google Dialog Flow, Heroku, Express, Node.js",
+    link: ""
+  },
+  {
+    name: "AR Experiment",
+    img: "arexperiment.png",
+    text: "In this project I experimented with Apple's ARKit to place different type of furniture on the floor. The user can move the object along with the floor and rotate it.",
+    tech: "React Native, Expo SDK, Three.js, Google Poly API, Apple ARKit",
+    link: ""
+  }
 
 ]
 
