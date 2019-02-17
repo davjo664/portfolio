@@ -109,7 +109,7 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; 
-  /* overflow: hidden; */
+  overflow-x: hidden;
 }
   body#bg-img {
     background: url(../img/background.jpg);
