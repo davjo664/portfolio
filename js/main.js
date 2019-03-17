@@ -1,4 +1,11 @@
 const p = [
+    {
+      name:"SpotifyViz",
+      img: "spotifyviz.png",
+      text:"Interactive web application for visualizing the music trends in the world using Spotify's open data.",
+      tech: ["Three.js", "D3", "Node.js", "Express", "Bootstrap"],
+      link: "https://github.com/davjo664/spotify-viz"
+  },
   {
       name:"PolyRave VR",
       img: "polyrave.png",
@@ -144,8 +151,8 @@ span.onclick = function() {
 onclickk = function(id) {
   modal.getElementsByTagName("h1")[0].innerHTML = p[id].name;
   modal.getElementsByTagName("h2")[0].innerHTML = p[id].text;
-  modal.getElementsByClassName("modal-img")[0].style = "background: #333 url(img/projects/"+p[id].img+") no-repeat center center/cover; height: 50vh;";
-  // modal.getElementsByTagName("h3")[0].innerHTML = "Technologies used: " + p[id].tech;
+  //Change the url if using local
+  modal.getElementsByClassName("modal-img")[0].style = "background: #333 url(./img/projects/"+p[id].img+") no-repeat center center/cover; height: 50vh;";
   var tech = "";
   for (var i = 0; i < p[id].tech.length; i++) {
     tech += '<span id="badge">'+ p[id].tech[i] +'</span>'
