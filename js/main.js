@@ -4,7 +4,7 @@ const p = [
       img: "spotifyviz.png",
       text:"Interactive web application for visualizing the music trends in the world using Spotify's open data.",
       tech: ["Three.js", "D3", "Node.js", "Express", "Bootstrap"],
-      link: "https://github.com/davjo664/spotify-viz"
+      link: "https://davjo664.github.io/spotify-viz-ghpages/"
   },
   {
       name:"PolyRave VR",
